@@ -1,0 +1,71 @@
+#GET ALL DATA
+SELECT *
+FROM student;
+
+#GET ONLY NAMES
+SELECT name
+FROM student;
+
+#GET NAME & MAJOR
+SELECT name,major
+FROM student;
+
+#GET FROM SPECIFIC DATA
+SELECT student.name,student.major
+FROM student;
+
+#SORT BY NAME ASCENDING ORDER
+SELECT student.name,student.major
+FROM student;
+ORDER BY name;
+
+#SORT BY NAME DESCENDING ORDER
+SELECT student.name,student.major
+FROM student
+ORDER BY name DESC;
+
+#SORT BY ID ASC ORDER
+SELECT student.name,student.major
+FROM student
+ORDER BY student_id ASC;
+
+#SORT BY ID DESC ORDER
+SELECT student.name,student.major
+FROM student
+ORDER BY student_id DESC;
+
+#SORT BY MAJOR & ID
+SELECT *
+FROM student
+ORDER BY major, student_id;
+
+#SORT BY MAJOR & ID DESC
+SELECT *
+FROM student
+ORDER BY major, student_id DESC;
+
+#LIMIT RESULT
+SELECT *
+FROM student
+LIMIT 2;
+
+#LIMIT RESULT TO ORDER BY student_id DESC
+SELECT *
+FROM student
+ORDER BY student_id DESC
+LIMIT 2;
+
+#BY SPECIFIC KEY
+SELECT *
+FROM student
+WHERE major = 'Biology';
+
+#BY SPECIFIC COLUMNS - major
+SELECT name, major
+FROM student
+WHERE major = 'Chemistry';
+
+#BY SPECIFIC COLUMNS - major - two choices
+SELECT name, major
+FROM student
+WHERE major = 'Chemistry' OR major = 'Biology';
