@@ -1,0 +1,35 @@
+-- Find names of all employees who have
+-- sold over 30,000 to a single client
+SELECT works_with.emp_id
+FROM works_with
+WHERE works_with.total_sales > 30000;
+
+
+-- FIRST NAME AND LAST NAME FROM THE EMPL TABLE WHERE
+-- THE EMPL ID IS IN THE RESULT OF THIS QUERY
+SELECT employee.first_name, employee.last_name
+FROM employee
+WHERE employee.emp_id IN (
+    SELECT works_with.emp_id
+    FROM works_with
+    WHERE works_with.total_sales > 30000
+);
+
+-- Find all clients who are handled by the branch
+-- that Michael Scott manages
+-- Assume you know Michael's ID
+-- Michael's ID
+SELECT branch.branch_id
+FROM branch 
+WHERE branch.mgr_id = 102;
+
+
+#WHERE BRANCH ID EQUAL TO THE UPPER RESULT
+SELECT client.client_name
+FROM client
+WHERE client.branch_id = (
+    SELECT branch.branch_id
+    FROM branch 
+    WHERE branch.mgr_id = 102
+    LIMIT 1
+);
